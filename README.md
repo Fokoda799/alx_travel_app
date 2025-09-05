@@ -83,74 +83,11 @@ Once the server is running, access the interactive API documentation:
 
 ## 🔗 API Endpoints
 
-### Listings
-- `GET /api/v1/listings/` - List all listings
-- `POST /api/v1/listings/` - Create new listing
-- `GET /api/v1/listings/{id}/` - Get listing details
-- `PUT/PATCH /api/v1/listings/{id}/` - Update listing
-- `DELETE /api/v1/listings/{id}/` - Delete listing
-- `GET /api/v1/listings/search/` - Advanced search
-
-### Bookings
-- `GET /api/v1/bookings/` - List user's bookings
-- `POST /api/v1/bookings/` - Create new booking
-- `POST /api/v1/bookings/{id}/confirm/` - Confirm booking (hosts only)
-- `POST /api/v1/bookings/{id}/cancel/` - Cancel booking
-
-### Reviews
-- `GET /api/v1/reviews/` - List reviews
-- `POST /api/v1/reviews/` - Create review
-- `GET /api/v1/listings/{id}/reviews/` - Get listing reviews
-- `POST /api/v1/listings/{id}/add_review/` - Add review to listing
-
 ## 🔒 Authentication
-
-The API uses Django's token authentication. Include the token in headers:
-
-```bash
-Authorization: Token your-auth-token-here
-```
-
-Get a token by POST to `/api-auth/login/` with username/password.
 
 ## 🧪 Testing
 
-```bash
-# Run all tests
-python manage.py test
-
-# Run tests with coverage
-pip install coverage
-coverage run --source='.' manage.py test
-coverage report
-coverage html  # Generate HTML report
-```
-
 ## 🚀 Deployment
-
-### Environment Variables for Production
-
-```bash
-DEBUG=False
-SECRET_KEY=your-super-secret-key
-ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com
-DB_NAME=alx_travel_production
-DB_USER=production_user
-DB_PASSWORD=secure_password
-REDIS_URL=redis://redis-server:6379/0
-```
-
-### Docker Deployment
-
-```dockerfile
-# Dockerfile example
-FROM python:3.9
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["gunicorn", "alx_travel_app.wsgi:application", "--bind", "0.0.0.0:8000"]
-```
 
 ## 🔧 Development
 
